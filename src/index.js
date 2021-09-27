@@ -112,13 +112,14 @@ export default class HorizontalScroll extends EventEmitter {
 	 */
 	_onScroll(e) {
 
-		if (e.deltaY > 0) {
+		const deltaScroll = e.deltaY === 0 ? e.deltaX : e.deltaY;
+		if (deltaScroll > 0) {
 			this.vars.direction = 1;
 		} else {
 			this.vars.direction = -1;
 		}
 
-		this.vars.scrollTarget += e.deltaY * -1;
+		this.vars.scrollTarget += deltaScroll * -1;
 		this.vars.scrollTarget = Math.round(Math.max(this.vars.scrollLeft, Math.min(this.vars.scrollTarget, this.vars.scrollRight)));
 
 	}

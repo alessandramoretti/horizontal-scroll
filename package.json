@@ -19,7 +19,7 @@
     "horizontal"
   ],
   "scripts": {
-    "clean": "rm -rf dist",
+    "clean": "Rmdir /S dist",
     "watch": "npm run clean && parallelshell 'npm run watch:lint' 'npm run watch:js'",
     "watch:lint": "esw -w src",
     "watch:js": "mkdir -p dist && watchify src/index.js -vd -t browserify-shim -t [ babelify --presets [ es2015 ] ] -t brfs -s HorizontalScroll -o dist/index.js",
